@@ -6,6 +6,8 @@ import image_histogram_eq  # e
 import image_grayscale  # G
 import image_gaussian_blur  # g
 import image_median_blur  # m
+import image_morphing_erode  # E
+import image_morphing_dilate  # D
 import image_resize
 import image_rotate  # o
 import image_sharpen_kernel  # k
@@ -30,6 +32,10 @@ if video.isOpened():
                 picture = image_sharpen_kernel.image_sharpen_kernel(picture)
             if image_median_blur.ENABLED:
                 picture = image_median_blur.image_median_blur(picture)
+            if image_morphing_erode.ENABLED:
+                picture = image_morphing_erode.image_morphing_erode(picture)
+            if image_morphing_dilate.ENABLED:
+                picture = image_morphing_dilate.image_morphing_dilate(picture)
             if image_resize.ENABLED:
                 picture = image_resize.image_resize(picture)
             if image_zoomin.ENABLED:
@@ -70,6 +76,8 @@ if video.isOpened():
         image_grayscale.test_key(key)
         image_resize.test_key(key)
         image_median_blur.test_key(key)
+        image_morphing_erode.test_key(key)
+        image_morphing_dilate.test_key(key)
         image_sharpen_kernel.test_key(key)
         image_zoomin.test_key(key)
         image_gaussian_blur.test_key(key)
